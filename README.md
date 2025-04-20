@@ -59,7 +59,7 @@ pip install xgboost
 ## Build, Train, and Test
 We examine data exfiltration across three exfiltration traffic environments: exfiltration over command control channels (case c-ii), exfiltration over transfer size limitations (case c-iii), and their combinations (case c-iv). We introduce two detection metrics: Package Transfer Rate (PTR) and Byte Transfer Rate (BTR). Utilizing these metrics, we measure network traffic, categorize APT attack environments, and train deep neural network models, named EDXGB, using ensembled decision trees to predict APT exfiltration. 
 
-Firstly, PTR and BTR need to be calculated and built into exfiltration environments from ```EnvData.py```. 
+Firstly, PTR and BTR need to be calculated and built into exfiltration environments from ```Envpreparing.py```. 
 
 
 
