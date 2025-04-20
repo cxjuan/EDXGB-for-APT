@@ -1,8 +1,6 @@
 # EDXGB-for-APT
+
 EDXGB is an ensemble deep learning tree model for APT exfiltration detection. In EDXGB, a deep learning neuron model is used as a feature extraction module, and XGBoost is the prediction drive force instead of the Softmax function.
-
-
-
 
 ## Hardware Conditions
 
@@ -15,6 +13,7 @@ Our evaluation experiments conducted in this section are deployed on a host comp
 + Python 3.9.16 version
 
 ## Experiment Implementation
+Our method is validated on two public datasets and compared against six baseline methods. Additionally, we simulate real-world exfiltration scenarios by creating three exfiltration traffic environments for each dataset. 
 + Dataset:
 ```python
 SCVIC-APT-2021: https://ieee-dataport.org/documents/scvic-apt-2021
@@ -57,11 +56,17 @@ For XGBoost, download and install:
 pip install xgboost
 ```
 
-## Usage
+## Build, Train, and Test
+We examine data exfiltration across three exfiltration traffic environments: exfiltration over command control channels (case c-ii), exfiltration over transfer size limitations (case c-iii), and their combinations (case c-iv). We introduce two detection metrics: Package Transfer Rate (PTR) and Byte Transfer Rate (BTR). Utilizing these metrics, we measure network traffic, categorize APT attack environments, and train deep neural network models, named EDXGB, using ensembled decision trees to predict APT exfiltration. 
 
-```python
-#
-```
+Firstly, PTR and BTR need to be calculated and built into exfiltration environments from ```EnvData.py```. 
+
+
+
+Secondly, DNNs, CNNs, and eight EDXGBs are trained from ```ML2_DNNs.py```, ```ML3_CNNs.py```, and ```ML_hybrid_EDXGB.py```. 
+
+
+Both base DL models and EDXGBs can be tested at ```Test_for_BaseDL_EDXGB.py``` in three different exfiltration environments. Meanwhile, the performance of evaluating EDXGBs in traditional network environments, which without considering different exfiltration cases, can be obtained from ```Test_for_BaseDL_EDXGB_Entire.py```. In addition, the performance of EDXGB without condidering PTR and BTR is executed in ```Test_for_BaseDL_EDXGB_Raw.py```.
 
 ## Contributing
 
